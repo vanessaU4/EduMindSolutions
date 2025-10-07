@@ -1,51 +1,15 @@
 # EduMindSolutions - Mental Health Platform
 
-<div align="center">
-
-![EduMindSolutions Logo](frontend/public/favicon.svg)
-
-
-</div>
-
-## 🌟 Overview
+## Description
 
 EduMindSolutions is a comprehensive mental health platform designed specifically for youth aged 13-23. The platform provides clinical assessments, peer support, crisis intervention services, and educational resources to support young people's mental health journey.
 
-### Key Features
+# GitHub Repository
 
-- 🏥 **Clinical Assessments** - Professional mental health evaluations and tracking
-- 👥 **Peer Support Community** - Safe spaces for peer-to-peer support and forums
-- 🚨 **Crisis Intervention** - 24/7 crisis support and emergency resources
-- 📚 **Educational Content** - Mental health resources, articles, and multimedia content
-- 🔒 **HIPAA Compliant** - Secure, privacy-focused healthcare platform
-- 📱 **Responsive Design** - Works seamlessly across all devices
-- 🎯 **Role-Based Access** - Different interfaces for patients and healthcare professionals
+GitHub Repo Link : https://github.com/vanessaU4/EduMindSolutions
 
-## 🏗️ System Architecture
 
-### Backend (Django REST API)
-- **Framework**: Django 5.1.7 + Django REST Framework
-- **Authentication**: JWT (JSON Web Tokens)
-- **Database**: SQLite (development) / PostgreSQL (production)
-- **Security**: HIPAA-compliant data handling and encryption
-
-### Frontend (React TypeScript)
-- **Framework**: React 18.3.1 with TypeScript
-- **Build Tool**: Vite 7.0.4
-- **UI Library**: Radix UI + Tailwind CSS
-- **State Management**: Redux Toolkit + React Query
-- **Routing**: React Router DOM
-
-### Key Applications
-
-| Application | Purpose | Features |
-|-------------|---------|----------|
-| **accounts** | User management | Registration, authentication, role-based access |
-| **assessments** | Clinical evaluations | Mental health assessments, progress tracking |
-| **community** | Peer support | Forums, chat rooms, peer matching |
-| **content** | Educational resources | Articles, videos, audio content |
-| **crisis** | Emergency support | Crisis hotlines, emergency contacts |
-| **wellness** | Health tracking | Mood tracking, wellness goals |
+# How to Set Up the Project
 
 ## 🚀 Quick Start
 
@@ -102,6 +66,54 @@ npm run dev
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:8000/api
 - **Admin Panel**: http://localhost:8000/admin
+
+# Designs 
+
+Link to Figma Mockups: https://www.figma.com/design/zYm7PkNDvAU7U64aMpU4VN/EDUMIND?node-id=0-1&t=xlTUlhvWX7vnqqpA-1
+
+
+
+# Video Demo
+
+link to video demo : https://www.loom.com/share/4a71e3bcaed44e99b15cbf33c2470691?sid=7bc4b4c5-870f-4753-9430-f04ee1dbb69e
+
+
+### Key Features
+
+- 🏥 **Clinical Assessments** - Professional mental health evaluations and tracking
+- 👥 **Peer Support Community** - Safe spaces for peer-to-peer support and forums
+- 🚨 **Crisis Intervention** - 24/7 crisis support and emergency resources
+- 📚 **Educational Content** - Mental health resources, articles, and multimedia content
+- 🔒 **HIPAA Compliant** - Secure, privacy-focused healthcare platform
+- 📱 **Responsive Design** - Works seamlessly across all devices
+- 🎯 **Role-Based Access** - Different interfaces for patients and healthcare professionals
+
+## 🏗️ System Architecture
+
+### Backend (Django REST API)
+- **Framework**: Django 5.1.7 + Django REST Framework
+- **Authentication**: JWT (JSON Web Tokens)
+- **Database**: SQLite (development) / PostgreSQL (production)
+- **Security**: HIPAA-compliant data handling and encryption
+
+### Frontend (React TypeScript)
+- **Framework**: React 18.3.1 with TypeScript
+- **Build Tool**: Vite 7.0.4
+- **UI Library**: Radix UI + Tailwind CSS
+- **State Management**: Redux Toolkit + React Query
+- **Routing**: React Router DOM
+
+### Key Applications
+
+| Application | Purpose | Features |
+|-------------|---------|----------|
+| **accounts** | User management | Registration, authentication, role-based access |
+| **assessments** | Clinical evaluations | Mental health assessments, progress tracking |
+| **community** | Peer support | Forums, chat rooms, peer matching |
+| **content** | Educational resources | Articles, videos, audio content |
+| **crisis** | Emergency support | Crisis hotlines, emergency contacts |
+| **wellness** | Health tracking | Mood tracking, wellness goals |
+
 
 ## 📋 API Documentation
 
