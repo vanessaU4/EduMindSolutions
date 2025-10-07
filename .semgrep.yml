@@ -1,0 +1,259 @@
+rules:
+  # Django Security Rules
+  - id: django-debug-true-in-production
+    pattern: DEBUG = True
+    message: "DEBUG should not be True in production"
+    languages: [python]
+    severity: ERROR
+    metadata:
+      category: security
+      technology: [django]
+      cwe: "CWE-489: Active Debug Code"
+      owasp: "A06:2021 - Vulnerable and Outdated Components"
+
+  - id: django-secret-key-hardcoded
+    pattern: SECRET_KEY = "..."
+    message: "SECRET_KEY should not be hardcoded"
+    languages: [python]
+    severity: ERROR
+    metadata:
+      category: security
+      technology: [django]
+      cwe: "CWE-798: Use of Hard-coded Credentials"
+
+  - id: django-allowed-hosts-wildcard
+    pattern: ALLOWED_HOSTS = ["*"]
+    message: "ALLOWED_HOSTS should not use wildcard in production"
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: security
+      technology: [django]
+
+  - id: django-cors-allow-all-origins
+    pattern: CORS_ALLOW_ALL_ORIGINS = True
+    message: "CORS_ALLOW_ALL_ORIGINS should not be True in production"
+    languages: [python]
+    severity: ERROR
+    metadata:
+      category: security
+      technology: [django]
+
+  # SQL Injection Prevention
+  - id: django-raw-sql-injection
+    pattern: |
+      cursor.execute($QUERY, ...)
+    message: "Potential SQL injection vulnerability"
+    languages: [python]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-89: SQL Injection"
+      owasp: "A03:2021 - Injection"
+
+  - id: django-extra-sql-injection
+    pattern: |
+      $MODEL.objects.extra(...)
+    message: "Use of .extra() can lead to SQL injection"
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: security
+      technology: [django]
+
+  # Authentication and Authorization
+  - id: django-permission-classes-missing
+    pattern: |
+      class $CLASS(APIView):
+        ...
+    message: "APIView should have permission_classes defined"
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: security
+      technology: [django, drf]
+
+  - id: weak-password-validation
+    pattern: |
+      AUTH_PASSWORD_VALIDATORS = []
+    message: "Password validators should be configured"
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: security
+      technology: [django]
+
+  # Cryptography
+  - id: weak-hash-algorithm
+    patterns:
+      - pattern: hashlib.md5(...)
+      - pattern: hashlib.sha1(...)
+    message: "Weak hash algorithm detected"
+    languages: [python]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+
+  - id: hardcoded-encryption-key
+    pattern: |
+      key = "..."
+    message: "Encryption key should not be hardcoded"
+    languages: [python]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-798: Use of Hard-coded Credentials"
+
+  # File Operations
+  - id: path-traversal-vulnerability
+    patterns:
+      - pattern: open($PATH, ...)
+      - pattern: os.path.join($BASE, $USER_INPUT)
+    message: "Potential path traversal vulnerability"
+    languages: [python]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-22: Path Traversal"
+
+  - id: unsafe-file-permissions
+    pattern: os.chmod($PATH, 0o777)
+    message: "Unsafe file permissions (777)"
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: security
+
+  # Network Security
+  - id: ssl-verification-disabled
+    patterns:
+      - pattern: requests.get(..., verify=False)
+      - pattern: requests.post(..., verify=False)
+      - pattern: urllib3.disable_warnings()
+    message: "SSL verification should not be disabled"
+    languages: [python]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-295: Improper Certificate Validation"
+
+  - id: http-url-in-production
+    pattern: |
+      $URL = "http://..."
+    message: "HTTP URLs should not be used in production"
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: security
+
+  # JavaScript/TypeScript Security Rules
+  - id: eval-usage
+    pattern: eval(...)
+    message: "Use of eval() is dangerous and should be avoided"
+    languages: [javascript, typescript]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-95: Code Injection"
+      owasp: "A03:2021 - Injection"
+
+  - id: innerhtml-xss
+    pattern: |
+      $ELEMENT.innerHTML = $USER_INPUT
+    message: "Potential XSS vulnerability with innerHTML"
+    languages: [javascript, typescript]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-79: Cross-site Scripting"
+      owasp: "A03:2021 - Injection"
+
+  - id: document-write-xss
+    pattern: document.write(...)
+    message: "document.write() can lead to XSS vulnerabilities"
+    languages: [javascript, typescript]
+    severity: WARNING
+    metadata:
+      category: security
+      cwe: "CWE-79: Cross-site Scripting"
+
+  - id: hardcoded-api-key
+    patterns:
+      - pattern: |
+          const API_KEY = "..."
+      - pattern: |
+          const apiKey = "..."
+    message: "API key should not be hardcoded"
+    languages: [javascript, typescript]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-798: Use of Hard-coded Credentials"
+
+  # React Security Rules
+  - id: react-dangerously-set-innerhtml
+    pattern: |
+      dangerouslySetInnerHTML={{__html: $HTML}}
+    message: "dangerouslySetInnerHTML can lead to XSS vulnerabilities"
+    languages: [javascript, typescript]
+    severity: WARNING
+    metadata:
+      category: security
+      technology: [react]
+      cwe: "CWE-79: Cross-site Scripting"
+
+  - id: react-target-blank-without-noopener
+    pattern: |
+      <a target="_blank" href={...}>
+    message: "target='_blank' should include rel='noopener noreferrer'"
+    languages: [javascript, typescript]
+    severity: WARNING
+    metadata:
+      category: security
+      technology: [react]
+
+  # General Security Patterns
+  - id: console-log-in-production
+    pattern: console.log(...)
+    message: "console.log should not be used in production"
+    languages: [javascript, typescript]
+    severity: INFO
+    metadata:
+      category: security
+
+  - id: todo-fixme-comments
+    patterns:
+      - pattern: |
+          # TODO: ...
+      - pattern: |
+          # FIXME: ...
+      - pattern: |
+          // TODO: ...
+      - pattern: |
+          // FIXME: ...
+    message: "TODO/FIXME comments should be addressed before production"
+    languages: [python, javascript, typescript]
+    severity: INFO
+    metadata:
+      category: maintainability
+
+  # Docker Security Rules
+  - id: dockerfile-user-root
+    pattern: USER root
+    message: "Containers should not run as root user"
+    languages: [dockerfile]
+    severity: WARNING
+    metadata:
+      category: security
+      technology: [docker]
+
+  - id: dockerfile-add-instead-of-copy
+    pattern: ADD $SRC $DEST
+    message: "Use COPY instead of ADD for local files"
+    languages: [dockerfile]
+    severity: INFO
+    metadata:
+      category: security
+      technology: [docker]
+      
