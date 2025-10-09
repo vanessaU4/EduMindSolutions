@@ -71,8 +71,15 @@ npm run dev
 
 Link to Figma Mockups: https://www.figma.com/design/zYm7PkNDvAU7U64aMpU4VN/EDUMIND?node-id=0-1&t=87yqO5cAqBvoo5nm-1
 
+<img width="865" height="431" alt="Screenshot (124)" src="https://github.com/user-attachments/assets/e6d71bf0-a07f-4f56-bcb7-fbe4214651e6" />
 
-Screenshots:
+<img width="771" height="425" alt="Screenshot (125)" src="https://github.com/user-attachments/assets/200c19f3-0aba-46ce-949a-62e066222394" />
+<img width="808" height="299" alt="Screenshot (126)" src="https://github.com/user-attachments/assets/db3dc7a2-e724-4c53-94f4-1ae0c9ef70d3" />
+<img width="812" height="357" alt="Screenshot (127)" src="https://github.com/user-attachments/assets/8e61bbfa-82f6-4a1a-a70e-3bb7c36957fc" />
+<img width="608" height="377" alt="Screenshot (128)" src="https://github.com/user-attachments/assets/7881b135-fc65-4b20-8f47-463ec35cc669" />
+
+Screenshots
+
  Database schema: <img width="1251" height="1053" alt="Database schema" src="https://github.com/user-attachments/assets/60a27a4e-357d-41b8-9d7e-5c944822306e" />
 
 app responsiveness: ![responsiveness](https://github.com/user-attachments/assets/468e5451-f84d-4e38-8dd4-d96829e4aba8)
