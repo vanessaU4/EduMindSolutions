@@ -9,7 +9,7 @@ EduMindSolutions is a comprehensive mental health platform designed specifically
 GitHub Repo Link : https://github.com/vanessaU4/EduMindSolutions
 
 
-# How to Set Up the Project
+# How to Set Up the environment and Project
 
 ## 🚀 Quick Start
 
@@ -69,13 +69,27 @@ npm run dev
 
 # Designs 
 
-Link to Figma Mockups: https://www.figma.com/design/zYm7PkNDvAU7U64aMpU4VN/EDUMIND?node-id=0-1&t=xlTUlhvWX7vnqqpA-1
+Link to Figma Mockups: https://www.figma.com/design/zYm7PkNDvAU7U64aMpU4VN/EDUMIND?node-id=0-1&t=87yqO5cAqBvoo5nm-1
 
 
+Screenshots:
+ Database schema: <img width="1251" height="1053" alt="Database schema" src="https://github.com/user-attachments/assets/60a27a4e-357d-41b8-9d7e-5c944822306e" />
+
+app responsiveness: ![responsiveness](https://github.com/user-attachments/assets/468e5451-f84d-4e38-8dd4-d96829e4aba8)
+
+
+# Deployment plan
+
+During the development phase, the EduMindSolutions app will be hosted locally to allow testing, debugging, and faster iteration. The backend, developed with Django REST Framework, and the frontend, built with React, will run on a local server environment to enable quick updates and testing before public release.
+
+For production, the application will be deployed on Render, which will host both the backend API and the PostgreSQL database, while the frontend will be served from the same platform for simplicity. This setup ensures reliability, scalability, and secure data handling as the project grows.
 
 # Video Demo
 
-link to video demo : https://www.loom.com/share/4a71e3bcaed44e99b15cbf33c2470691?sid=7bc4b4c5-870f-4753-9430-f04ee1dbb69e
+link to video demo : https://www.loom.com/share/a08cc459cc874da09e73cc890039f889?sid=65bfb0a4-390a-478f-b6f8-24173011b023
+
+
+
 
 
 ### Key Features
